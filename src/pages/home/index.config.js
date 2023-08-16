@@ -1,3 +1,3 @@
 export default definePageConfig({
-  navigationBarTitleText: "名片",
+  navigationBarTitleText: "首页",
 });
