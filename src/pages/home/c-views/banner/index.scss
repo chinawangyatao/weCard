@@ -1,0 +1,16 @@
+.swiperWrapper {
+  border-radius: 20px;
+  margin: 0 20px;
+}
+
+.bannerBG {
+  width: 100%;
+  height: 300px;
+  background: aqua;
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+  }
+}

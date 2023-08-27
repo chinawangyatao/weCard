@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "@nutui/nutui-react-taro";
 import "./index.scss";
+import Banner from "./c-views/banner/index";
 
 const handleClick = () => {
   wx.login({
@@ -12,9 +13,10 @@ const handleClick = () => {
 const Index = (props) => {
   return (
     <>
+      <Banner></Banner>
       <div className={"container"}>
         <Button type="primary" onClick={handleClick}>
-          登录
+          登录123
         </Button>
       </div>
     </>

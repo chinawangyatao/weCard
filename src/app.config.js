@@ -1,5 +1,6 @@
 export default defineAppConfig({
   pages: [
+    "pages/card/index",
     "pages/home/index",
     "pages/case/index",
     "pages/appointment/index",
@@ -11,7 +12,6 @@ export default defineAppConfig({
     navigationBarBackgroundColor: "#fff",
     navigationBarTitleText: "WeChat",
     navigationBarTextStyle: "black",
-    navigationStyle: "custom",
   },
   tabBar: {
     color: "#fff",
