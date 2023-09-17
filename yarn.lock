@@ -1391,6 +1391,13 @@
   dependencies:
     classnames "^2.3.2"
 
+"@nutui/icons-react-taro@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@nutui/icons-react-taro/-/icons-react-taro-0.0.1.tgz#1687dfb9051ae77941ea134d47862eef1f438289"
+  integrity sha512-uHUaVnh9yfkUdbYLEfoxArFedP7pti+sOrnBTDknemsJKqK/jnQ9xnIKpO2l+1CgGWpbAkipQVBDUM7CXKuWaA==
+  dependencies:
+    classnames "^2.3.2"
+
 "@nutui/nutui-react-taro@^2.0.10":
   version "2.0.10"
   resolved "https://registry.yarnpkg.com/@nutui/nutui-react-taro/-/nutui-react-taro-2.0.10.tgz#112e33a602ef1a7f849be53256d7d85ecb1adf15"

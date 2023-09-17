@@ -1,0 +1,19 @@
+.fixedNav {
+  position: fixed;
+  width: 100vw;
+  height: 120px;
+  z-index: 99;
+  bottom: 180px;
+  display: flex;
+  justify-content: center;
+  .title {
+    height: 100%;
+    width: 90%;
+    border-radius: 60px;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+}

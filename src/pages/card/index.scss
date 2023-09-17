@@ -1,6 +1,41 @@
+.navbar {
+  position: absolute;
+  top: 6%;
+  --nutui-navbar-background: none;
+  --nutui-navbar-box-shadow: none;
+}
 .container {
-  margin: 0 20px;
-  border: black 1px solid;
-  .headerTitle {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: url("https://fakeimg.pl/350x400/282828,128/000,255?text=this_is_card");
+  .containerCard {
+    position: absolute;
+    top: 12%;
+    padding: 0 20px;
+    .headerTitle {
+      h1 {
+        font-size: 60px;
+        font-weight: bold;
+        color: #fff;
+      }
+      .subtitle {
+        color: #ffffff;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+      }
+      .cardDetails {
+        margin-top: 20px;
+        position: relative;
+        z-index: 99;
+        height: calc(100vh - 350px);
+        background: url("https://fakeimg.pl/350x200/282828,128/000,255?text=card");
+        display: flex;
+        justify-content: space-around;
+      }
+    }
   }
 }
