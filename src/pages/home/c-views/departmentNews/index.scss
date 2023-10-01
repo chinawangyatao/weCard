@@ -1,0 +1,56 @@
+.departmentNewsContainer {
+  background: white;
+  border-radius: 16px;
+  width: 95%;
+  margin: 0 auto;
+  margin-top: 24px;
+  padding-bottom: 24px;
+  .content {
+    padding: 0 20px;
+    .contentItem {
+      display: flex;
+      margin-top: 16px;
+      .image {
+        width: 240px;
+        height: 166px;
+        background: #e2ecf8;
+        border-radius: 12px;
+        border: 1px solid #eeeff0;
+      }
+      .title {
+        margin-left: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: calc(100% - 240px);
+        .titleName {
+          font-size: 36px;
+          font-family: PingFangSC-Medium, PingFang SC;
+          font-weight: 500;
+          color: #262b33;
+          line-height: 50px;
+        }
+        .titleSubtitle {
+          font-size: 28px;
+          font-family: PingFangSC-Regular, PingFang SC;
+          font-weight: 400;
+          color: #86888c;
+          line-height: 40px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          -webkit-box-orient: vertical;
+        }
+        .titleTime {
+          font-size: 24px;
+          font-family: PingFangSC-Regular, PingFang SC;
+          font-weight: 400;
+          color: #86888c;
+          line-height: 34px;
+          margin-bottom: 5px;
+        }
+      }
+    }
+  }
+}

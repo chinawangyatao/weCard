@@ -4,7 +4,14 @@ import "./index.scss";
 const Index = memo(() => {
   return (
     <>
-      <Swiper defaultValue={0} autoPlay loop={true} className={"swiperWrapper"}>
+      <Swiper
+        defaultValue={0}
+        autoPlay
+        loop={true}
+        className={"swiperWrapper"}
+        indicator
+        height={130}
+      >
         <Swiper.Item>
           <div className={"bannerBG"}>
             <span>Banner1</span>

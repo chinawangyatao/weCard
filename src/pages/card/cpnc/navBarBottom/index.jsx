@@ -4,7 +4,10 @@ import { View } from "@tarojs/components";
 import { Share } from "@nutui/icons-react-taro";
 import { Button } from "@nutui/nutui-react-taro";
 
-const Index = memo(() => {
+const Index = memo((props) => {
+  const navigate = () => {
+    props.navigateTo("/pages/home/index");
+  };
   return (
     <>
       <View className={"navBarBottom"}>
@@ -23,7 +26,12 @@ const Index = memo(() => {
           </Button>
         </View>
         <View>
-          <Button style={{ width: "150px" }} type={"info"} size={"normal"}>
+          <Button
+            style={{ width: "150px" }}
+            type={"info"}
+            size={"normal"}
+            onClick={navigate}
+          >
             进入企业
           </Button>
         </View>

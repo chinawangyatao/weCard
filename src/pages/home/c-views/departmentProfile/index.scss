@@ -1,0 +1,57 @@
+.departmentProfileContainer {
+  width: 95%;
+  //height: 450px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 8px;
+  margin-top: 24px;
+  padding-bottom: 24px;
+  .content {
+    .headerContent {
+      display: flex;
+
+      .image {
+        width: 240px;
+        height: 166px;
+        border-radius: 12px;
+        background: #e0e9f4;
+      }
+      .title {
+        margin-left: 32px;
+        .titleName {
+          width: 108px;
+          height: 50px;
+          font-size: 36px;
+          font-family: PingFangSC-Medium, PingFang SC;
+          font-weight: 500;
+          color: #262b33;
+          line-height: 50px;
+        }
+        .titleTabs {
+          display: flex;
+          margin-top: 16px;
+          .tabs {
+            width: 72px;
+            height: 38px;
+            background: #e6f1ff;
+            border-radius: 8px;
+            color: #1a57ff;
+            line-height: 38px;
+            padding: 12px;
+            margin-right: 16px;
+          }
+        }
+      }
+    }
+
+    .infoContent {
+      margin-top: 16px;
+      color: #86888c;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 8;
+      -webkit-box-orient: vertical;
+    }
+  }
+}

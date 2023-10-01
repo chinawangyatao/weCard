@@ -1,0 +1,14 @@
+.titleBarContainer {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  .title {
+    font-weight: 500;
+    font-size: 40px;
+  }
+  .rightIcon {
+    display: flex;
+    align-items: center;
+    color: #86888c;
+  }
+}
