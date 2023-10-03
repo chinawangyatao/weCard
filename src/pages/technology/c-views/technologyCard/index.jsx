@@ -6,8 +6,12 @@ import Taro from "@tarojs/taro";
 // 路由函数
 const route = (url) => {
   Taro.navigateTo({ url: url })
-    .then((res) => {})
-    .catch((err) => {});
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };
 
 const Index = memo((props) => {

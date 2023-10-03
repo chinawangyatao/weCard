@@ -21,9 +21,10 @@ const config = {
   plugins: ["@tarojs/plugin-html"],
   defineConstants: {},
   alias: {
-    "@/src": path.resolve(__dirname, "../src"),
+    "@/": path.resolve(__dirname, "../src"),
     "@/assets": path.resolve(__dirname, "..", "src/assets"),
     "@/components": path.resolve(__dirname, "..", "src/components"),
+    "@/servers": path.resolve(__dirname, "..", "src/servers"),
   },
   copy: {
     patterns: [],
