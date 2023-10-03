@@ -21,9 +21,10 @@ const config = {
   plugins: ["@tarojs/plugin-html"],
   defineConstants: {},
   alias: {
-    "@/src": path.resolve(__dirname, "../src"),
+    "@/": path.resolve(__dirname, "../src"),
     "@/assets": path.resolve(__dirname, "..", "src/assets"),
     "@/components": path.resolve(__dirname, "..", "src/components"),
+    "@/servers": path.resolve(__dirname, "..", "src/servers"),
   },
   copy: {
     patterns: [],
@@ -33,8 +34,18 @@ const config = {
   compiler: { type: "webpack5", prebundle: { enable: false } },
   cache: {
     enable: false, // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
+    fileType: {
+      templ: ".wxml",
+      style: ".wxss",
+      config: ".json",
+      script: ".js",
+      xs: ".wxs",
+    },
   },
   mini: {
+    optimizeMainPackage: {
+      enable: true,
+    },
     postcss: {
       pxtransform: {
         enable: true,

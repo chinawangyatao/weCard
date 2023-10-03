@@ -1,5 +1,4 @@
 import React from "react";
-import { Button } from "@nutui/nutui-react-taro";
 import "./index.scss";
 import Banner from "./c-views/banner/index";
 import TabBarIcon from "./c-views/tabBarIcon";
@@ -7,13 +6,7 @@ import DepartmentProfile from "./c-views/departmentProfile";
 import DepartmentEnvironment from "./c-views/departmentEnvironment";
 import DepartmentTechnology from "./c-views/departmentTechnology";
 import DepartmentNews from "./c-views/departmentNews";
-const handleClick = () => {
-  wx.login({
-    success(res) {
-      console.log(res);
-    },
-  });
-};
+
 const Index = (props) => {
   return (
     <>

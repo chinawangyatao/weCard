@@ -9,7 +9,7 @@ const Index = memo(() => {
     <>
       <div className={"newsDetailsContainer"}>
         <div className={"headerContent"}>
-          <img width={"100%"} src={bgimage}  alt={}/>
+          <img width={"100%"} src={bgimage} alt={""} />
         </div>
         <div className={"mainContent"}>
           <div className={"title"}>

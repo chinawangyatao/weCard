@@ -8,23 +8,7 @@ import FixedNav from "./cpnc/fixedNav";
 import NavBarBottom from "./cpnc/navBarBottom";
 
 const Index = memo(() => {
-  useEffect(() => {
-    loginHandle();
-  }, []);
-  const loginHandle = () => {
-    const accountInfo = Taro.getAccountInfoSync().miniProgram;
-    wx.login({
-      success(res) {
-        console.log(accountInfo);
-        console.log(res);
-        if (res.code) {
-          //发起网络请求
-        } else {
-          console.log("登录失败！" + res.errMsg);
-        }
-      },
-    });
-  };
+  useEffect(() => {}, []);
   const navigateTo = (url) => {
     try {
       Taro.switchTab({
@@ -36,11 +20,7 @@ const Index = memo(() => {
   };
   return (
     <>
-      <NavBar
-        className={"navbar"}
-        back={<RectLeft color={"#fff"} />}
-        onBackClick={() => Taro.showToast({ title: "返回" })}
-      >
+      <NavBar className={"navbar"}>
         <span>电子名片</span>
       </NavBar>
       <View className={"container"}>

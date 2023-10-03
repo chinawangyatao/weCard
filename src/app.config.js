@@ -1,13 +1,14 @@
 export default defineAppConfig({
   pages: [
-    // "pages/card/index",
+    "pages/card/index",
     "pages/home/index",
     "pages/case/index",
     "pages/technology/index",
     "pages/index/index",
     "pages/mine/index",
+    "pages/login/index",
   ],
-  subPackages: [
+  subpackages: [
     {
       root: "packages",
       pages: [
@@ -15,8 +16,8 @@ export default defineAppConfig({
         "technicalDetails/index",
         "newsDetails/index",
         "caseDetails/index",
+        // "card/index",
       ],
-      independent: true,
     },
   ],
   window: {

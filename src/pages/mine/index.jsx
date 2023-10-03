@@ -1,30 +1,28 @@
 import React, { memo, useEffect } from "react";
 import { View } from "@tarojs/components";
-import { Button, NavBar } from "@nutui/nutui-react-taro";
 import "./index.scss";
-import Taro from "@tarojs/taro";
-import { RectLeft } from "@nutui/icons-react-taro";
 import FixedNav from "./cpnc/fixedNav";
 import NavBarBottom from "./cpnc/navBarBottom";
 
+import { getUserInfo } from "@/servers/servers";
+import Taro from "@tarojs/taro";
+const queryUserInfo = async () => {
+  try {
+    const { data } = await getUserInfo();
+    console.log(data);
+    if (data.userId === 0) {
+      await Taro.reLaunch({ url: "/pages/login/index" });
+    }
+  } catch (e) {
+    console.log(e);
+  }
+};
 const Index = memo(() => {
   useEffect(() => {
-    loginHandle();
+    queryUserInfo();
   }, []);
-  const loginHandle = () => {
-    const accountInfo = Taro.getAccountInfoSync().miniProgram;
-    wx.login({
-      success(res) {
-        console.log(accountInfo);
-        console.log(res);
-        if (res.code) {
-          //发起网络请求
-        } else {
-          console.log("登录失败！" + res.errMsg);
-        }
-      },
-    });
-  };
+
+  // 查询用户信息
   const navigateTo = (url) => {
     try {
       Taro.switchTab({
