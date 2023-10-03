@@ -3,9 +3,12 @@ import "./caseCard.scss";
 import Taro from "@tarojs/taro";
 
 const route = (url) => {
-  Taro.navigateTo({ url: url })
-    .then((res) => {})
-    .catch((err) => {});
+  try {
+    Taro.navigateTo({ url: url });
+    console.log(url);
+  } catch (e) {
+    console.log(e);
+  }
 };
 const Index = memo(() => {
   return (
@@ -13,7 +16,7 @@ const Index = memo(() => {
       <div className={"caseCardContainer"}>
         <div
           className={"caseCardContent"}
-          // onClick={() => route("/packages/caseDetails/index")}
+          onClick={() => route("/packages/caseDetails/index")}
         >
           <div className={"image"}></div>
           <div className={"title"}>
@@ -22,7 +25,7 @@ const Index = memo(() => {
         </div>
         <div
           className={"caseCardContent"}
-          // onClick={() => route("/packages/caseDetails/index")}
+          onClick={() => route("/packages/casesDetails/index")}
         >
           <div className={"image"}></div>
           <div className={"title"}>

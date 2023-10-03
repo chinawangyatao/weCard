@@ -26,11 +26,13 @@ const Index = memo(() => {
     });
   };
   const navigateTo = (url) => {
-    Taro.switchTab({
-      url: url,
-    }).then((res) => {
-      console.log(res);
-    });
+    try {
+      Taro.switchTab({
+        url: url,
+      });
+    } catch (e) {
+      console.log(e);
+    }
   };
   return (
     <>

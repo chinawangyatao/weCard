@@ -1,28 +1,74 @@
-.nutui-react-demo {
+page {
+  overflow-y: hidden;
+}
+
+.navbar {
+  position: fixed;
+  top: 6%;
+  --nutui-navbar-background: none;
+  --nutui-navbar-box-shadow: none;
+  span {
+    color: #fff;
+    font-size: 30px;
+  }
+}
+
+.container {
+  position: relative;
+  width: 100%;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.index {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24rpx;
-  margin-bottom: 30px;
-}
-
-.title {
-  display: block;
-  margin: 20px 0;
-  font-weight: 600;
-}
-
-.btn {
-  display: block;
-  width: 200px;
-  margin-right: 20px;
-  margin-bottom: 20px;
+  background: url("../../assets/images/Business_card_background.png");
+  .containerCard {
+    position: absolute;
+    top: 5%;
+    padding: 0 20px;
+    .headerTitle {
+      h1 {
+        font-size: 60px;
+        font-weight: bold;
+        color: #fff;
+        line-height: 84px;
+      }
+      .subtitle {
+        color: #ffffff;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        line-height: 50px;
+      }
+      .cardDetails {
+        margin-top: 20px;
+        position: relative;
+        z-index: 99;
+        height: calc(100vh - 350px);
+        background: url("https://fakeimg.pl/350x200/282828,128/000,255?text=card");
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        .introduction {
+          width: 100%;
+          padding: 30px;
+          color: white;
+        }
+        .jobTitle {
+          display: flex;
+          span {
+            margin-right: 10px;
+          }
+        }
+        .honorLabel {
+          margin: 10px 0;
+          span {
+            color: #aa6c0d;
+            display: inline;
+            background: #f8f3eb;
+            border-radius: 8px;
+            padding: 0 10px;
+          }
+        }
+      }
+    }
+  }
 }

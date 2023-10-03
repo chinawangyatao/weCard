@@ -7,14 +7,14 @@ export default defineAppConfig({
     "pages/index/index",
     "pages/mine/index",
   ],
-  subpackages: [
+  subPackages: [
     {
       root: "packages",
       pages: [
         "appointment/index",
-        // "caseDetails/index",
         "technicalDetails/index",
         "newsDetails/index",
+        "caseDetails/index",
       ],
       independent: true,
     },

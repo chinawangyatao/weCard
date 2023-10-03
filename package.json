@@ -18,7 +18,7 @@
     "build:qq": "taro build --type qq",
     "build:jd": "taro build --type jd",
     "build:quickapp": "taro build --type quickapp",
-    "dev:weapp": "npm run build:weapp -- --watch --experimental-json-modules",
+    "dev:weapp": "npm run build:weapp -- --watch",
     "dev:swan": "npm run build:swan -- --watch",
     "dev:alipay": "npm run build:alipay -- --watch",
     "dev:tt": "npm run build:tt -- --watch",
@@ -86,7 +86,6 @@
     "stylelint": "^14.4.0",
     "ts-node": "^10.9.1",
     "typescript": "^4.1.0",
-    "webpack": "^5.78.0",
-    "webpack-sources": "^3.2.3"
+    "webpack": "^5.78.0"
   }
 }
