@@ -16,22 +16,17 @@ const Index = memo((props) => {
           <span>分享</span>
         </View>
         <View>
-          <Button
-            type={"info"}
-            fill={"outline"}
-            size={"normal"}
-            style={{ width: "150px" }}
-          >
-            收入名片夹
-          </Button>
+          {/*<Button*/}
+          {/*  type={"info"}*/}
+          {/*  fill={"outline"}*/}
+          {/*  size={"normal"}*/}
+          {/*  style={{ width: "150px" }}*/}
+          {/*>*/}
+          {/*  收入名片夹*/}
+          {/*</Button>*/}
         </View>
-        <View>
-          <Button
-            style={{ width: "150px" }}
-            type={"info"}
-            size={"normal"}
-            onClick={navigate}
-          >
+        <View className={"navBarBottomInfo"}>
+          <Button block type={"info"} size={"normal"} onClick={navigate}>
             进入企业
           </Button>
         </View>

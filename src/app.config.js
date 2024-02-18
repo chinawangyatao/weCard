@@ -1,6 +1,5 @@
 export default defineAppConfig({
   pages: [
-    "pages/card/index",
     "pages/home/index",
     "pages/case/index",
     "pages/technology/index",
@@ -16,7 +15,8 @@ export default defineAppConfig({
         "technicalDetails/index",
         "newsDetails/index",
         "caseDetails/index",
-        // "card/index",
+        "card/index",
+        "addWeChat/index",
       ],
     },
   ],

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./index.scss";
 import Banner from "./c-views/banner/index";
 import TabBarIcon from "./c-views/tabBarIcon";
@@ -6,8 +6,13 @@ import DepartmentProfile from "./c-views/departmentProfile";
 import DepartmentEnvironment from "./c-views/departmentEnvironment";
 import DepartmentTechnology from "./c-views/departmentTechnology";
 import DepartmentNews from "./c-views/departmentNews";
+import Taro from "@tarojs/taro";
 
 const Index = (props) => {
+  // const nav = useNa
+  useEffect(() => {
+    Taro.navigateTo({ url: "/packages/card/index" });
+  });
   return (
     <>
       <Banner></Banner>

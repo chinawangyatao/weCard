@@ -8,6 +8,10 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  .navBarBottomInfo {
+    flex: 1;
+    padding: 0 20px;
+  }
   .share {
     display: flex;
     flex-direction: column;

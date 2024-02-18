@@ -1,0 +1,19 @@
+.addWeChatWrapper {
+  //width: 100vw;
+  //height: 100vh;
+
+  .addWeChatContent {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    border-radius: 20px;
+    text-align: center;
+    padding-top: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    span {
+      font-size: 36px;
+    }
+  }
+}

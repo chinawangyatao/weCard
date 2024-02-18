@@ -17,7 +17,7 @@ page {
   position: relative;
   width: 100%;
   height: 100vh;
-  background: url("../../assets/images/Business_card_background.png");
+  background: url("../../assets/images/Business_card_background.jpg");
   .containerCard {
     position: absolute;
     top: 12%;
@@ -44,9 +44,15 @@ page {
         z-index: 99;
         height: calc(100vh - 350px);
         background: url("https://fakeimg.pl/350x200/282828,128/000,255?text=card");
-        display: flex;
-        justify-content: space-between;
+        //display: flex;
+        //justify-content: space-between;
         padding: 40px;
+        .cardDetailsTop {
+          display: flex;
+        }
+        .cardDetailsContent {
+          margin-top: 30px;
+        }
         .introduction {
           width: 100%;
           padding: 30px;
@@ -56,16 +62,18 @@ page {
           display: flex;
           span {
             margin-right: 10px;
+            font-size: 26px;
           }
         }
         .honorLabel {
-          margin: 10px 0;
+          margin: 5x 0;
           span {
             color: #aa6c0d;
             display: inline;
             background: #f8f3eb;
             border-radius: 8px;
             padding: 0 10px;
+            font-size: 24px;
           }
         }
       }

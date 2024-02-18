@@ -1,7 +1,7 @@
 import React, { memo, useState } from "react";
 import "./technicalDetails.scss";
 
-import bgimage from "../../assets/images/tbg.png";
+import bgimage from "../../assets/images/tbg.jpg";
 import { Tabs } from "@nutui/nutui-react-taro";
 const Index = memo(() => {
   const [tab1value, setTab1value] = useState("0");
