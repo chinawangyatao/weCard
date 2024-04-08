@@ -11,7 +11,7 @@ export const cellList = [
         <ArrowRight size={14} />
       </>
     ),
-    link: "managementPackages/editUserInfo/index",
+    link: "/managementPackages/editUserInfo/index",
   },
   {
     id: 1,
@@ -22,7 +22,7 @@ export const cellList = [
         <ArrowRight size={14} />
       </>
     ),
-    link: "managementPackages/editCarouselInfo/index",
+    link: "/managementPackages/editCarouselInfo/index",
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ export const cellList = [
         <ArrowRight size={14} />
       </>
     ),
-    link: "managementPackages/editIntroductionInfo/index",
+    link: "/managementPackages/editIntroductionInfo/index",
   },
   {
     id: 3,
@@ -44,7 +44,7 @@ export const cellList = [
         <ArrowRight size={14} />
       </>
     ),
-    link: "managementPackages/editPictureInfo/index",
+    link: "/managementPackages/editPictureInfo/index",
   },
   {
     id: 4,
@@ -55,7 +55,7 @@ export const cellList = [
         <ArrowRight size={14} />
       </>
     ),
-    link: "managementPackages/editTechnicalInfo/index",
+    link: "/managementPackages/editTechnicalInfo/index",
   },
   {
     id: 5,
@@ -66,7 +66,7 @@ export const cellList = [
         <ArrowRight size={14} />
       </>
     ),
-    link: "managementPackages/editNewsInfo/index",
+    link: "/managementPackages/editNewsInfo/index",
   },
   {
     id: 6,
@@ -77,7 +77,7 @@ export const cellList = [
         <ArrowRight size={14} />
       </>
     ),
-    link: "managementPackages/editCategoryInfo/index",
+    link: "/managementPackages/editCategoryInfo/index",
   },
   {
     id: 7,
@@ -88,6 +88,6 @@ export const cellList = [
         <ArrowRight size={14} />
       </>
     ),
-    link: "managementPackages/editCaseInfo/index",
+    link: "/managementPackages/editCaseInfo/index",
   },
 ];
