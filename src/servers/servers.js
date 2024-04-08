@@ -2,7 +2,7 @@
 import HTTPREQUEST from "./http";
 
 export const wechatlLogin = (postData) => {
-  return HTTPREQUEST.post("/wechatlogin", postData);
+  return HTTPREQUEST.post("/login", postData);
 };
 
 export const saveUserInfo = (params) => {

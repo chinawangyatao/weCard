@@ -3,11 +3,19 @@ import "./index.scss";
 import { View } from "@tarojs/components";
 import { Share } from "@nutui/icons-react-taro";
 import { Button } from "@nutui/nutui-react-taro";
+import Taro from "@tarojs/taro";
 
 const Index = memo((props) => {
   const navigate = () => {
     props.navigateTo("/pages/home/index");
   };
+
+  const editHandle = () => {
+    Taro.redirectTo({
+      url: "/managementPackages/edit/index",
+    });
+  };
+
   return (
     <>
       <View className={"navBarBottom"}>
@@ -21,6 +29,7 @@ const Index = memo((props) => {
             fill={"outline"}
             size={"normal"}
             style={{ width: "150px" }}
+            onClick={editHandle}
           >
             编辑名片
           </Button>

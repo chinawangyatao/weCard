@@ -43,6 +43,9 @@ const config = {
     },
   },
   mini: {
+    miniCssExtractPluginOption: {
+      ignoreOrder: true,
+    },
     optimizeMainPackage: {
       enable: true,
     },

@@ -11,7 +11,7 @@ import Taro from "@tarojs/taro";
 const Index = (props) => {
   // const nav = useNa
   useEffect(() => {
-    Taro.navigateTo({ url: "/packages/card/index" });
+    // Taro.navigateTo({ url: "/packages/card/index" });
   });
   return (
     <>

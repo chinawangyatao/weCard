@@ -24,7 +24,7 @@ const loginHandle = () => {
   wx.login({
     success: async (res) => {
       // console.log(accountInfo);
-      // console.log(res);
+      console.log(res);
       try {
         const result = await wechatlLogin({ code: res.code });
         // console.log(result);

@@ -8,10 +8,12 @@ const Index = memo((props) => {
         <div className={"title"}>
           <span>{props.title}</span>
         </div>
-        <div className={"rightIcon"}>
-          <span>{props.more}</span>
-          <RectRight size={16} />
-        </div>
+        {props.more && (
+          <div className={"rightIcon"} onClick={props.navigate}>
+            <span>{props.more}</span>
+            <RectRight size={16} />
+          </div>
+        )}
       </div>
     </>
   );
