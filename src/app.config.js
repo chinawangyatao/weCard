@@ -33,6 +33,8 @@ export default defineAppConfig({
         "editPictureInfo/index",
         "editTechnicalInfo/index",
         "editUserInfo/index",
+        "editCarouselInfoItem/index",
+        "editRichText/index",
       ],
     },
   ],
