@@ -1,0 +1,26 @@
+.editWrapper {
+  padding: 0 20px;
+
+  .ql-container {
+    height: 100%;
+  }
+
+  .toolbox {
+    .nut-fixednav-btn {
+      height: 50px;
+      width: 50px;
+      border-radius: 50px;
+    }
+    .nut-fixednav-list {
+      right: 20px;
+      opacity: 0;
+      padding: 0 30px 0 10px;
+    }
+    .nut-fixednav.active .nut-fixednav-list {
+      opacity: 100%;
+    }
+    .nut-fixednav-btn .nut-icon {
+      margin-right: 0;
+    }
+  }
+}
