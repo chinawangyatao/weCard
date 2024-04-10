@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useEffect } from "react";
 import {
   Button,
   Cell,
@@ -11,6 +11,8 @@ import { Plus, ArrowRight } from "@nutui/icons-react-taro";
 import Taro from "@tarojs/taro";
 
 const Index = memo(() => {
+  useEffect(() => {}, []);
+
   const submitData = (value) => {
     console.log(value);
     Taro.navigateBack(-1);

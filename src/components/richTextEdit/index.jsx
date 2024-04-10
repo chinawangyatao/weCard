@@ -8,6 +8,7 @@ const Index = memo(() => {
   const [visible, setVisible] = useState(false);
   const [keyboardHeight, setKeyboardHeight] = useState(240);
   const editorRef = useRef();
+  const [detailHtml, setDetailHtml] = useState(null);
   useEffect(() => {
     return () => {};
   }, []);
@@ -21,13 +22,19 @@ const Index = memo(() => {
     console.log(item, event);
   };
 
-  const editBlur = () => {
+  const editBlur = (event) => {
+    console.log(event.detail);
     setKeyboardHeight(300);
+    setDetailHtml(event.detail);
   };
 
   const getFocus = () => {
     console.log(editorRef.current);
     editorRef.current.parentNode.parentNode.focus();
+  };
+
+  const submitData = () => {
+    Taro.navigateBack(-1);
   };
 
   const editReady = () => {
@@ -98,6 +105,11 @@ const Index = memo(() => {
           onBlur={editBlur}
           onReady={editReady}
         />
+      </View>
+      <View className={"toolboxBottom"}>
+        <Button onClick={submitData} block type={"primary"}>
+          保存
+        </Button>
       </View>
     </>
   );
