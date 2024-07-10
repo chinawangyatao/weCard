@@ -3,6 +3,7 @@ import Taro, { useDidShow, useDidHide } from "@tarojs/taro";
 // 全局样式
 import "./app.scss";
 import { wechatlLogin } from "@/servers/servers";
+import { getUserinfo } from "@/servers/api/login";
 
 function App(props) {
   // 可以使用所有的 React Hooks
@@ -26,7 +27,7 @@ const loginHandle = () => {
       // console.log(accountInfo);
       console.log(res);
       try {
-        const result = await wechatlLogin({ code: res.code });
+        const result = await getUserinfo({ code: res.code });
         // console.log(result);
         await Taro.setStorage({
           key: "token",
