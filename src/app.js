@@ -22,27 +22,27 @@ function App(props) {
 
 const loginHandle = () => {
   const accountInfo = Taro.getAccountInfoSync().miniProgram;
-  wx.login({
-    success: async (res) => {
-      // console.log(accountInfo);
-      console.log(res);
-      try {
-        const result = await getUserinfo({ code: res.code });
-        // console.log(result);
-        await Taro.setStorage({
-          key: "token",
-          data: result.token,
-        });
-      } catch (err) {
-        console.log(err);
-      }
-      if (res.code) {
-        //发起网络请求
-      } else {
-        console.log("登录失败！" + res.errMsg);
-      }
-    },
-  });
+  // wx.login({
+  //   success: async (res) => {
+  //     // console.log(accountInfo);
+  //     console.log(res);
+  //     try {
+  //       const result = await getUserinfo({ code: res.code });
+  //       // console.log(result);
+  //       await Taro.setStorage({
+  //         key: "token",
+  //         data: result.token,
+  //       });
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //     if (res.code) {
+  //       //发起网络请求
+  //     } else {
+  //       console.log("登录失败！" + res.errMsg);
+  //     }
+  //   },
+  // });
 };
 
 export default App;

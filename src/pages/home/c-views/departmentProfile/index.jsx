@@ -1,24 +1,67 @@
-import React, { memo } from "react";
+import React, { memo, useEffect, useState } from "react";
 import "./index.scss";
 import TitleBar from "@/components/titleBar";
 import Taro from "@tarojs/taro";
+import { getCompanyBaseInfo } from "@/servers/api/home";
+import { Button, Image, Popup } from "@nutui/nutui-react-taro";
+import message from "@/components/message";
+
 const Index = memo(() => {
   const navigate = () => {
     Taro.navigateTo({ url: "/packages/introductionDetails/index" });
   };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const [pageData, setPageData] = useState({
+    companyDesc: "",
+    companyLogo: "",
+    companyName: "",
+  });
+
+  // 请求数据
+  const getData = () => {
+    getCompanyBaseInfo().then((res) => {
+      const { data, code, msg } = res;
+      if (code === 0) {
+        setPageData((prevState) => ({
+          ...prevState,
+          companyName: data.companyName,
+          companyLogo: data.companyLogo,
+          companyDesc: data.companyDesc,
+        }));
+      } else {
+        message.errorMessage(msg);
+      }
+    });
+  };
+  // 简介查看更多
+  const [showDesc, setShowDesc] = useState(false);
+  const companyDescMore = () => {
+    setShowDesc(true);
+  };
+
   return (
     <>
       <div className={"departmentProfileContainer"}>
-        <TitleBar title={"科室简介"} more={"查看更多"} navigate={navigate} />
+        <TitleBar title={"科室简介"} />
         <div className={"content"}>
           <div className={"headerContent"}>
-            <div className={"image"}></div>
+            <Image
+              width={150}
+              height={100}
+              radius={"6%"}
+              src={pageData.companyLogo}
+              mode={"aspectFill"}
+            />
             <div className={"title"}>
               <div className={"titleName"}>
-                <span>门诊部</span>
+                <span>{pageData.companyName}</span>
               </div>
               <div className={"titleTabs"}>
-                {["医疗", "预防", "康复"].map((item) => {
+                {["医疗", "预防", "康复", "预防"].map((item) => {
                   return <div className={"tabs"}>{item}</div>;
                 })}
               </div>
@@ -26,7 +69,35 @@ const Index = memo(() => {
           </div>
           <div className={"infoContent"}>
             <span>
-              门诊部，是集医疗、预防、康复为一体的综合性医疗部门，内设外科、内科、儿科、妇产科、中西医结合科、中医科、康复理疗科、耳鼻喉眼科、口腔科、皮肤科、抽血室等特色科室。且由多年资的中医、中西医专家以及曾在有知名度的名院名专科进修的中青年技术骨干坐诊，是医院的一个重要职能部门，门诊实行人性化管理，以人为本，感动服务，且设有导诊处、自助挂号打印报告等为患者提供优质就医环境。
+              {pageData.companyDesc.length > 80 ? (
+                <>
+                  {pageData.companyDesc.slice(0, 50)}...
+                  <Button
+                    className={"more"}
+                    type={"info"}
+                    size={"small"}
+                    fill={"none"}
+                    onClick={companyDescMore}
+                  >
+                    查看更多
+                  </Button>
+                  <Popup
+                    closeable
+                    visible={showDesc}
+                    position="bottom"
+                    title={"查看简介"}
+                    onClose={() => {
+                      setShowDesc(false);
+                    }}
+                  >
+                    <span style={{ padding: "10px" }}>
+                      {pageData.companyDesc}
+                    </span>
+                  </Popup>
+                </>
+              ) : (
+                pageData.companyDesc
+              )}
             </span>
           </div>
         </div>

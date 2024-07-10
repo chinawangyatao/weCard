@@ -1,7 +1,29 @@
-import React, { memo } from "react";
-import { Swiper } from "@nutui/nutui-react-taro";
+import React, { memo, useEffect, useState } from "react";
+import { Swiper, Image } from "@nutui/nutui-react-taro";
 import "./index.scss";
-const Index = memo(() => {
+import { getBannerList } from "@/servers/api/home";
+import Taro from "@tarojs/taro";
+import message from "@/components/message";
+const Index = () => {
+  const [bannerList, setBannerList] = useState([]);
+  useEffect(() => {
+    getData();
+  }, []);
+
+  /**
+   * 获取 banner 数据
+   * */
+  const getData = () => {
+    getBannerList().then((res) => {
+      const { data, code, msg } = res;
+      if (code === 0) {
+        setBannerList(data);
+      } else {
+        message.errorMessage(msg);
+      }
+    });
+  };
+
   return (
     <>
       <Swiper
@@ -10,26 +32,18 @@ const Index = memo(() => {
         loop={true}
         className={"swiperWrapper"}
         indicator
-        height={130}
+        height={180}
       >
-        <Swiper.Item>
-          <div className={"bannerBG"}>
-            <span>Banner1</span>
-          </div>
-        </Swiper.Item>
-        <Swiper.Item>
-          <div className={"bannerBG"}>
-            <span>Banner2</span>
-          </div>
-        </Swiper.Item>
-        <Swiper.Item>
-          <div className={"bannerBG"}>
-            <span>Banner3</span>
-          </div>
-        </Swiper.Item>
+        {bannerList.map((banner, bannerIndex) => {
+          return (
+            <Swiper.Item key={bannerIndex}>
+              <Image src={banner.bannerPath} mode={"aspectFill"} />
+            </Swiper.Item>
+          );
+        })}
       </Swiper>
     </>
   );
-});
+};
 
 export default Index;

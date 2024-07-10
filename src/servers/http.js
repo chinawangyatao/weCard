@@ -17,6 +17,7 @@ class httpRequest {
       header: {
         "content-type": contentType,
         Authorization: `Bearer ${Taro.getStorageSync("token")}`,
+        onlyId: "1LKtRc",
       },
     };
     return Taro.request(option);
