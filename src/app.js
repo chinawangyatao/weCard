@@ -4,6 +4,7 @@ import Taro, { useDidShow, useDidHide } from "@tarojs/taro";
 import "./app.scss";
 import { wechatlLogin } from "@/servers/servers";
 import { getUserinfo } from "@/servers/api/login";
+import { ConfigProvider } from "@nutui/nutui-react-taro";
 
 function App(props) {
   // 可以使用所有的 React Hooks
@@ -17,7 +18,7 @@ function App(props) {
   // 对应 onHide
   useDidHide(() => {});
 
-  return props.children;
+  return <ConfigProvider>{props.children}</ConfigProvider>;
 }
 
 const loginHandle = () => {

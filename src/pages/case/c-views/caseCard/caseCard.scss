@@ -1,9 +1,10 @@
 .caseCardContainer {
+  margin-top: 16px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   .caseCardContent {
-    margin-top: 16px;
+    margin-bottom: 32px;
     width: 210px;
     .image {
       height: 210px;
@@ -11,7 +12,7 @@
       border-radius: 14px;
     }
     .title {
-      margin-top: 16px;
+      margin-top: 12px;
       font-size: 32px;
       font-family: PingFangSC-Regular, PingFang SC;
       font-weight: 400;
@@ -24,4 +25,19 @@
       -webkit-box-orient: vertical;
     }
   }
+
+  .nut-grid {
+    border: none;
+    .nut-grid-item-content {
+      border: none;
+    }
+  }
+}
+
+.nut-tabpane {
+  padding: 24px 10px;
+}
+.nut-tabs-content-wrap {
+  overflow: hidden;
+  height: 100vh !important;
 }

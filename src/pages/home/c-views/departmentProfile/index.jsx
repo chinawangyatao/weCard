@@ -50,8 +50,8 @@ const Index = memo(() => {
         <div className={"content"}>
           <div className={"headerContent"}>
             <Image
-              width={150}
-              height={100}
+              width={190}
+              // height={100}
               radius={"6%"}
               src={pageData.companyLogo}
               mode={"aspectFill"}

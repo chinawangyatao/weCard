@@ -1,34 +1,54 @@
-import React, { memo } from "react";
+import React, { memo, useEffect, useState } from "react";
 import TitleBar from "@/components/titleBar";
 import "./index.scss";
 import Taro from "@tarojs/taro";
+import { getCompanyBaseInfo } from "@/servers/api/column";
+import message from "@/components/message";
+import { Grid, Image } from "@nutui/nutui-react-taro";
 const Index = memo(() => {
   const navigate = () => {
     Taro.navigateTo({ url: "/packages/technicalDetails/index" });
   };
+
+  const [dataList, setDataList] = useState([]);
+  const [pageData, setPageData] = useState({
+    arType: "21",
+    page: 1,
+    pageSize: 10,
+  });
+  useEffect(() => {
+    getData();
+  }, []);
+  const getData = () => {
+    getCompanyBaseInfo(pageData)
+      .then((res) => {
+        if (res.code !== 0) {
+          message.errorMessage(res.msg);
+        } else {
+          setDataList(res.data.list ?? []);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <>
-      <div className={"departmentTechnologyContainer"}>
-        <TitleBar title={"诊疗技术"} />
-        <div className={"content"}>
-          <div className={"swiperContent"}>
-            <div className={"image"}></div>
-            <span>微创甲状腺射频消融术</span>
-          </div>
-          <div className={"swiperContent"}>
-            <div className={"image"}></div>
-            <span>微创甲状腺射频消融术</span>
-          </div>
-          <div className={"swiperContent"}>
-            <div className={"image"}></div>
-            <span>微创甲状腺射频消融术</span>
-          </div>
-          <div className={"swiperContent"}>
-            <div className={"image"}></div>
-            <span>微创甲状腺射频消融术</span>
-          </div>
+      {dataList.length > 0 && (
+        <div className={"departmentTechnologyContainer"}>
+          <TitleBar title={"诊疗技术"} />
+          <Grid>
+            {dataList.map((i) => {
+              return (
+                <Grid.Item key={i.baseId}>
+                  <Image></Image>
+                </Grid.Item>
+              );
+            })}
+          </Grid>
         </div>
-      </div>
+      )}
     </>
   );
 });

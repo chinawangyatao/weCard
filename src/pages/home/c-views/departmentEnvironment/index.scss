@@ -9,10 +9,18 @@
     .image {
       width: 323px;
       height: 216px;
-      background: #e2ecf8;
+      //background: #e2ecf8;
       border-radius: 12px;
-      border: 1px solid #eeeff0;
-      margin-bottom: 23px;
+      //border: 1px solid #eeeff0;
+      margin-bottom: 64px;
+      .imageTitle {
+        text-align: center;
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+      }
     }
   }
 }
