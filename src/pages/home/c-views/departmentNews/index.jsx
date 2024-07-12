@@ -22,7 +22,7 @@ const Index = memo(() => {
     }
   };
   const [pageData, setPageData] = useState({
-    arType: "21",
+    arType: "22",
     page: 1,
     pageSize: 10,
     total: 0,
@@ -68,7 +68,7 @@ const Index = memo(() => {
                         {item.titleSubtitle}
                       </div>
                     </div>
-                    <div className={"titleTime"}>{item.date}</div>
+                    <div className={"titleTime"}>{item.CreatedAt}</div>
                   </div>
                 </div>
               ))}

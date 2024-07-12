@@ -1,6 +1,6 @@
 const getBaseUrl = (url) => {
-  let BASE_URL = "http://mdh6g8.natappfree.cc" + "/api/v1";
-  // let BASE_URL = "https://c.wedream.tech/api";
+  // let BASE_URL = "http://mdh6g8.natappfree.cc" + "/api/v1";
+  let BASE_URL = "https://c.wedream.tech/api";
   // let BASE_URL = "http://biglong.natapp4.cc";
   // if (process.env.NODE_ENV === 'development') {
   //   //开发环境 - 根据请求不同返回不同的BASE_URL

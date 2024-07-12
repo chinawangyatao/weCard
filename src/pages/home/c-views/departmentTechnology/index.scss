@@ -7,7 +7,7 @@
   margin-top: 24px;
   padding-bottom: 14px;
   .content {
-    width: 95%;
+    width: 100%;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -34,6 +34,10 @@
         line-height: 50px;
         margin-top: 10px;
         display: block;
+        display: -webkit-box;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        -webkit-line-clamp: 1;
       }
     }
   }

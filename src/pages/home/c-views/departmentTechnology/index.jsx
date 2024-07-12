@@ -5,6 +5,7 @@ import Taro from "@tarojs/taro";
 import { getCompanyBaseInfo } from "@/servers/api/column";
 import message from "@/components/message";
 import { Grid, Image } from "@nutui/nutui-react-taro";
+import { View } from "@tarojs/components";
 const Index = memo(() => {
   const navigate = () => {
     Taro.navigateTo({ url: "/packages/technicalDetails/index" });
@@ -38,15 +39,22 @@ const Index = memo(() => {
       {dataList.length > 0 && (
         <div className={"departmentTechnologyContainer"}>
           <TitleBar title={"诊疗技术"} />
-          <Grid>
+          <View className="content">
             {dataList.map((i) => {
               return (
-                <Grid.Item key={i.baseId}>
-                  <Image></Image>
-                </Grid.Item>
+                <View className={"swiperContent"} key={i.baseId}>
+                  <Image
+                    lazyLoad
+                    radius={"5%"}
+                    height={100}
+                    width={130}
+                    src={i.cover}
+                  ></Image>
+                  <span>{i.title}</span>
+                </View>
               );
             })}
-          </Grid>
+          </View>
         </div>
       )}
     </>

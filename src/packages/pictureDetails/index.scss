@@ -1,11 +1,9 @@
 .content {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 20px 80px;
+  height: 100vh;
   .image {
     width: 323px;
-    height: 216px;
+    height: 380px;
     //background: #e2ecf8;
     border-radius: 12px;
     //border: 1px solid #eeeff0;
