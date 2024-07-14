@@ -6,6 +6,7 @@ import { newsList } from "./commonData";
 import { InfiniteLoading } from "@nutui/nutui-react-taro";
 import { getCompanyBaseInfo } from "@/servers/api/column";
 import message from "@/components/message";
+import { route } from "@/servers/utils";
 const Index = memo(() => {
   const [hasMore, setHasMore] = useState(true);
   const [listData, setListData] = useState([]);
@@ -59,7 +60,15 @@ const Index = memo(() => {
               onLoadMore={loadMore}
             >
               {listData.map((item) => (
-                <div className={"contentItem"} key={item.id}>
+                <div
+                  className={"contentItem"}
+                  key={item.id}
+                  onClick={() =>
+                    route(
+                      `/packages/newsDetails/index?id=${item.baseId}&pkId=${pageData.arType}&title=${item.title}`
+                    )
+                  }
+                >
                   <div className={"image"}></div>
                   <div className={"title"}>
                     <div>

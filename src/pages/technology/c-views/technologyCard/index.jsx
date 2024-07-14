@@ -2,6 +2,7 @@ import React, { memo } from "react";
 
 import "./index.scss";
 import Taro from "@tarojs/taro";
+import { Image } from "@nutui/nutui-react-taro";
 
 // 路由函数
 const route = (url) => {
@@ -14,44 +15,24 @@ const route = (url) => {
     });
 };
 
-const Index = memo((props) => {
+const Index = ({ data }) => {
   return (
     <>
       <div className={"technologyCardContainer"}>
         <div
           className={"contentItem"}
-          onClick={() => route("/packages/technicalDetails/index")}
+          onClick={() =>
+            route(
+              `/packages/technicalDetails/index?id=${data.id}&pkId=${data.pkId}`
+            )
+          }
         >
-          <div className={"image"}></div>
-          <div className={"title"}>
-            <div>
-              <div className={"titleName"}>这里是{props.title}主标题</div>
-              <div className={"titleSubtitle"}>这里是副标题，只显示一行…</div>
-            </div>
-            <div className={"titleTime"}>浏览3446</div>
+          <div className={"image"}>
+            <Image src={data.cover} mode={"aspectFill"} />
           </div>
-        </div>
-        <div
-          className={"contentItem"}
-          onClick={() => route("/packages/technicalDetails/index")}
-        >
-          <div className={"image"}></div>
           <div className={"title"}>
             <div>
-              <div className={"titleName"}>这里是{props.title}主标题</div>
-              <div className={"titleSubtitle"}>这里是副标题，只显示一行…</div>
-            </div>
-            <div className={"titleTime"}>浏览3446</div>
-          </div>
-        </div>
-        <div
-          className={"contentItem"}
-          onClick={() => route("/packages/technicalDetails/index")}
-        >
-          <div className={"image"}></div>
-          <div className={"title"}>
-            <div>
-              <div className={"titleName"}>这里是{props.title}主标题</div>
+              <div className={"titleName"}>{data.title ?? "--"}</div>
               <div className={"titleSubtitle"}>这里是副标题，只显示一行…</div>
             </div>
             <div className={"titleTime"}>浏览3446</div>
@@ -60,6 +41,6 @@ const Index = memo((props) => {
       </div>
     </>
   );
-});
+};
 
 export default Index;

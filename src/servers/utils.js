@@ -18,3 +18,12 @@ export const pageToLogin = () => {
     });
   }
 };
+
+// route go
+export const route = (url) => {
+  try {
+    Taro.navigateTo({ url: url });
+  } catch (e) {
+    console.log(e);
+  }
+};

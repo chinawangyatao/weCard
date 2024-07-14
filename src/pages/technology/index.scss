@@ -1,2 +1,20 @@
 .technologyContainer {
+  height: 100vh;
+  overflow: hidden;
+  .content {
+    padding: 20px;
+    margin-top: 160px;
+    overflow-y: scroll;
+    height: 87%;
+  }
+  .searchTitle {
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    border: 1px solid #eaf0fb;
+    transition-duration: 300ms;
+    padding: 10px;
+    height: 36px;
+    //height: 100%;
+  }
 }

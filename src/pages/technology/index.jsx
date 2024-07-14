@@ -1,8 +1,20 @@
-import React, { useRef, useState } from "react";
-import { Swiper, Tabs } from "@nutui/nutui-react-taro";
+import React, { useEffect, useState } from "react";
 
 import "./index.scss";
 import TechnologyCard from "./c-views/technologyCard";
+import {
+  Animate,
+  Button,
+  Empty,
+  InfiniteLoading,
+  Input,
+  NavBar,
+  SearchBar,
+} from "@nutui/nutui-react-taro";
+import { getCompanyAllArticle } from "@/servers/api/article";
+import { View } from "@tarojs/components";
+import { Search } from "@nutui/icons-react-taro";
+import message from "@/components/message";
 
 const titleName = [
   { name: "消化内科" },
@@ -11,30 +23,114 @@ const titleName = [
   { name: "骨科" },
   { name: "心血管科" },
 ];
-const Index = (props) => {
-  const [tab1value, setTab1value] = useState("0");
+const Index = () => {
+  const [pageData, setPageData] = useState({
+    params: { Page: 1, PageSize: 10, keyword: "" },
+    total: 0,
+  });
+  const [dataList, setDataList] = useState(titleName);
 
+  useEffect(() => {
+    // getData();
+  }, []);
+
+  const getData = () => {
+    getCompanyAllArticle(pageData.params).then((res) => {
+      if (res.code !== 0) {
+        message.errorMessage(res.msg);
+        return;
+      }
+      setDataList((prevState) => [...prevState, ...res.data.list]);
+      setPageData((prevState) => {
+        return {
+          ...prevState,
+          total: res.data.total,
+        };
+      });
+    });
+  };
+
+  // 搜索 + 加载更多
+  useEffect(() => {
+    getData();
+  }, [pageData.params]);
+  const [showSearch, setShowSearch] = useState(false);
+  const searchHandle = (event) => {
+    setPageData((prevState) => {
+      return {
+        ...prevState,
+        params: {
+          ...prevState.params,
+          keyword: event.target.value,
+          Page: 1,
+          PageSize: 10,
+        },
+      };
+    });
+  };
+
+  const [hasMore, setHasMore] = useState(true);
+  const loadMore = async () => {
+    console.log("到底了");
+    if (pageData.params.Page * pageData.params.PageSize > pageData.total) {
+      setHasMore(false);
+    } else {
+      setPageData((prevState) => {
+        return {
+          ...prevState,
+          params: { ...prevState.params, Page: prevState.params.Page++ },
+        };
+      });
+    }
+  };
   return (
-    <>
-      <div className={"technologyContainer"}>
-        <Tabs
-          tabStyle={{ backgroundColor: "white" }}
-          autoHeight={true}
-          value={tab1value}
-          onChange={(value) => {
-            setTab1value(value);
-          }}
+    <View className="technologyContainer">
+      <NavBar
+        fixed
+        titleAlign={"left"}
+        style={{
+          marginTop: wx.getSystemInfoSync().statusBarHeight + "px",
+          background: "none",
+        }}
+      >
+        <div
+          className="searchTitle"
+          style={showSearch ? { width: "70%" } : { width: "20px" }}
         >
-          {titleName.map((item, index) => {
-            return (
-              <Tabs.TabPane title={item.name} key={index}>
-                <TechnologyCard title={item.name} />
-              </Tabs.TabPane>
-            );
-          })}
-        </Tabs>
+          <div style={{ lineHeight: 1 }}>
+            <Search size={18} onClick={() => setShowSearch(!showSearch)} />
+          </div>
+          {showSearch && (
+            <>
+              <Input
+                style={{
+                  height: "24px",
+                  paddingLeft: "10px",
+                }}
+                confirmType={"search"}
+                placeholder="请输入内容"
+                onConfirm={searchHandle}
+              />
+            </>
+          )}
+        </div>
+      </NavBar>
+      <div className={"content"}>
+        {dataList.length > 0 ? (
+          <InfiniteLoading
+            target="scroll"
+            hasMore={hasMore}
+            onLoadMore={loadMore}
+          >
+            {dataList.map((item, index) => {
+              return <TechnologyCard data={item} key={item.id} />;
+            })}
+          </InfiniteLoading>
+        ) : (
+          <Empty description="无数据" />
+        )}
       </div>
-    </>
+    </View>
   );
 };
 

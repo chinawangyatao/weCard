@@ -1,18 +1,8 @@
-import React, { memo } from "react";
+import React from "react";
 import "./caseCard.scss";
-import Taro from "@tarojs/taro";
 import { Empty, Grid, Image } from "@nutui/nutui-react-taro";
-import { getCaseDetailById } from "@/servers/api/case";
-import message from "@/components/message";
-import { msg } from "@babel/core/lib/config/validation/option-assertions";
+import { route } from "@/servers/utils";
 
-const route = (url) => {
-  try {
-    Taro.navigateTo({ url: url });
-  } catch (e) {
-    console.log(e);
-  }
-};
 const Index = (props) => {
   const { caseDetailList, pkId } = props;
 

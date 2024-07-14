@@ -6,6 +6,7 @@ import { getCompanyBaseInfo } from "@/servers/api/column";
 import message from "@/components/message";
 import { Grid, Image } from "@nutui/nutui-react-taro";
 import { View } from "@tarojs/components";
+import { route } from "@/servers/utils";
 const Index = memo(() => {
   const navigate = () => {
     Taro.navigateTo({ url: "/packages/technicalDetails/index" });
@@ -42,7 +43,15 @@ const Index = memo(() => {
           <View className="content">
             {dataList.map((i) => {
               return (
-                <View className={"swiperContent"} key={i.baseId}>
+                <View
+                  className={"swiperContent"}
+                  key={i.baseId}
+                  onClick={() =>
+                    route(
+                      `/packages/technicalDetails/index?id=${i.baseId}&pkId=${pageData.arType}&title=${i.title}`
+                    )
+                  }
+                >
                   <Image
                     lazyLoad
                     radius={"5%"}
