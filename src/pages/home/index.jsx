@@ -7,6 +7,7 @@ import DepartmentEnvironment from "./c-views/departmentEnvironment";
 import DepartmentTechnology from "./c-views/departmentTechnology";
 import DepartmentNews from "./c-views/departmentNews";
 import Taro from "@tarojs/taro";
+import { Button } from "@nutui/nutui-react-taro";
 
 const Index = (props) => {
   // const nav = useNa

@@ -14,7 +14,7 @@ const Index = memo(() => {
   const { router } = getCurrentInstance();
   const { id, pkId, title } = router.params;
   useEffect(() => {
-    getCaseDetailById({ id, pkId })
+    getCaseDetailById({ baseId: id })
       .then((res) => {
         const { code, data, msg } = res;
         if (code !== 0) {
@@ -26,7 +26,7 @@ const Index = memo(() => {
       .catch(({ msg }) => {
         message.errorMessage(msg);
       });
-  }, [id, pkId]);
+  }, [id]);
   return (
     <>
       <div className={"newsDetailsContainer"}>

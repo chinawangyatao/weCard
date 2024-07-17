@@ -15,11 +15,11 @@ export const getCaseDetailList = (data) => {
 
 /**
  * @description 微信通过 id 获取案例详情
- * @param id string
+ * @param baseId string
  * */
-export const getCaseDetailById = (id) => {
+export const getCaseDetailById = (baseId) => {
   return HTTPREQUEST.get(
-    "/caseTypeDetail/getWechatCaseTypeDetailArticleById",
-    id
+    "/wechat/companyArticle/queryArticleDetailById",
+    baseId
   );
 };

@@ -11,7 +11,7 @@ const Index = () => {
   const { id, pkId } = router.params;
   const [value, setValue] = useState("");
   useEffect(() => {
-    getCaseDetailById({ id, pkId })
+    getCaseDetailById({ baseId: id })
       .then((res) => {
         const { code, data, msg } = res;
         if (code !== 0) {
@@ -23,7 +23,7 @@ const Index = () => {
       .catch(({ msg }) => {
         message.errorMessage(msg);
       });
-  }, [id, pkId]);
+  }, [id]);
 
   return (
     <View className={"caseDetailContainer"}>

@@ -27,6 +27,7 @@ const Index = ({ value }) => {
     <>
       {value.length > 0 ? (
         <Editor
+          style={{ height: "100%", width: "100%" }}
           id="editor"
           readOnly
           className="editor"
