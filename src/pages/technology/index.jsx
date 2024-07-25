@@ -2,33 +2,18 @@ import React, { useEffect, useState } from "react";
 
 import "./index.scss";
 import TechnologyCard from "./c-views/technologyCard";
-import {
-  Animate,
-  Button,
-  Empty,
-  InfiniteLoading,
-  Input,
-  NavBar,
-  SearchBar,
-} from "@nutui/nutui-react-taro";
+import { Empty, InfiniteLoading, Input, NavBar } from "@nutui/nutui-react-taro";
 import { getCompanyAllArticle } from "@/servers/api/article";
 import { View } from "@tarojs/components";
 import { Search } from "@nutui/icons-react-taro";
 import message from "@/components/message";
 
-const titleName = [
-  { name: "消化内科" },
-  { name: "皮肤科" },
-  { name: "神经内科" },
-  { name: "骨科" },
-  { name: "心血管科" },
-];
 const Index = () => {
   const [pageData, setPageData] = useState({
     params: { Page: 1, PageSize: 10, keyword: "" },
     total: 0,
   });
-  const [dataList, setDataList] = useState(titleName);
+  const [dataList, setDataList] = useState([]);
 
   useEffect(() => {
     // getData();
@@ -86,6 +71,7 @@ const Index = () => {
   return (
     <View className="technologyContainer">
       <NavBar
+        zIndex={9999}
         fixed
         titleAlign={"left"}
         style={{
@@ -95,9 +81,9 @@ const Index = () => {
       >
         <div
           className="searchTitle"
-          style={showSearch ? { width: "70%" } : { width: "20px" }}
+          style={{ height: "32px", width: showSearch ? "75%" : "32px" }}
         >
-          <div style={{ lineHeight: 1 }}>
+          <div style={{ lineHeight: 1, paddingLeft: "6px" }}>
             <Search size={18} onClick={() => setShowSearch(!showSearch)} />
           </div>
           {showSearch && (
