@@ -11,10 +11,10 @@ const Index = () => {
   const { id, pkId } = router.params;
   const [value, setValue] = useState("");
   useEffect(() => {
-    getCaseDetailById({ baseId: id })
+    getCaseDetailById({ id: id })
       .then((res) => {
         const { code, data, msg } = res;
-        if (code !== 0) {
+        if (code !== 200) {
           message.errorMessage(msg);
           return;
         }

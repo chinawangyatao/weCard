@@ -16,7 +16,7 @@ const Index = () => {
   const getData = () => {
     getBannerList().then((res) => {
       const { data, code, msg } = res;
-      if (code === 0) {
+      if (code === 200) {
         setBannerList(data);
       } else {
         message.errorMessage(msg);

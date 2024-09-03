@@ -25,7 +25,7 @@ const Index = memo(() => {
   const getData = () => {
     getCompanyBaseInfo().then((res) => {
       const { data, code, msg } = res;
-      if (code === 0) {
+      if (code === 200) {
         setPageData((prevState) => ({
           ...prevState,
           companyName: data.companyName,

@@ -24,10 +24,10 @@ const Index = memo(() => {
   const getData = () => {
     getCompanyBaseInfo(pageData)
       .then((res) => {
-        if (res.code !== 0) {
+        if (res.code !== 200) {
           message.errorMessage(res.msg);
         } else {
-          setDataList(res.data.list ?? []);
+          setDataList(res.rows ?? []);
         }
       })
       .catch((err) => {

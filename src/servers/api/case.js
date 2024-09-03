@@ -2,7 +2,7 @@ import HTTPREQUEST from "@/servers/http";
 
 // 获取分类列表
 export const getCaseList = () => {
-  return HTTPREQUEST.get("/caseType/getCaseTypeWeChatList");
+  return HTTPREQUEST.get("/biz/casetype/queryCaseTypeListWeChat");
 };
 
 /**
@@ -10,7 +10,7 @@ export const getCaseList = () => {
  * @param data {pkId:string}
  * */
 export const getCaseDetailList = (data) => {
-  return HTTPREQUEST.get("/caseTypeDetail/getWechatCaseTypeDetailList", data);
+  return HTTPREQUEST.get("/biz/typeDetail/queryCaseTypeDetailListByPkIdWeChat", data);
 };
 
 /**
@@ -19,7 +19,7 @@ export const getCaseDetailList = (data) => {
  * */
 export const getCaseDetailById = (baseId) => {
   return HTTPREQUEST.get(
-    "/wechat/companyArticle/queryArticleDetailById",
-    baseId
+    "/biz/typeDetail/queryCaseTypeDetailByIdWeChat",
+      baseId
   );
 };

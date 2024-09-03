@@ -22,7 +22,7 @@ const Index = memo(() => {
     getCaseDetailById({ baseId: id })
       .then((res) => {
         const { code, data, msg } = res;
-        if (code !== 0) {
+        if (code !== 200) {
           message.errorMessage(msg);
           return;
         }

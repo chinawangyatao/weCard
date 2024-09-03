@@ -23,7 +23,7 @@ const Index = ({ data }) => {
           className={"contentItem"}
           onClick={() =>
             route(
-              `/packages/technicalDetails/index?id=${data.id}&pkId=${data.pkId}`
+              `/packages/technicalDetails/index?id=${data.baseId}&pkId=${data.pkId}`
             )
           }
         >

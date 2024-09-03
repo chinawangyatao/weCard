@@ -21,15 +21,15 @@ const Index = () => {
 
   const getData = () => {
     getCompanyAllArticle(pageData.params).then((res) => {
-      if (res.code !== 0) {
+      if (res.code !== 200) {
         message.errorMessage(res.msg);
         return;
       }
-      setDataList((prevState) => [...prevState, ...res.data.list]);
+      setDataList((prevState) => [...prevState, ...res.rows]);
       setPageData((prevState) => {
         return {
           ...prevState,
-          total: res.data.total,
+          total: res.total,
         };
       });
     });

@@ -20,7 +20,7 @@ const Index = (props) => {
     getCaseList()
       .then((res) => {
         const { code, data, msg } = res;
-        if (code === 0) {
+        if (code === 200) {
           setPageData((prevState) => ({ ...prevState, caseList: data }));
           setTabValue(data[0].id);
           caseDetailList(data[0].id);
@@ -34,7 +34,7 @@ const Index = (props) => {
   const caseDetailList = (pkId) => {
     getCaseDetailList({ pkId }).then((res) => {
       const { code, data, msg } = res;
-      if (code === 0) {
+      if (code === 200) {
         setPageData((prevState) => ({ ...prevState, caseDetailList: data }));
       } else {
         message.errorMessage(msg);

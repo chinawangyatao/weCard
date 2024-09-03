@@ -8,5 +8,5 @@ import HTTPREQUEST from "@/servers/http";
  *  pageSize 每页大小
  * */
 export const getCompanyBaseInfo = (data) => {
-  return HTTPREQUEST.get("/wechat//companyArticle/getCaList", data);
+  return HTTPREQUEST.get("/biz/article/w/list", data);
 };

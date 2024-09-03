@@ -3,7 +3,7 @@ import "./index.scss";
 import TitleBar from "@/components/titleBar";
 import Taro from "@tarojs/taro";
 import { newsList } from "./commonData";
-import { InfiniteLoading } from "@nutui/nutui-react-taro";
+import {Image, InfiniteLoading} from "@nutui/nutui-react-taro";
 import { getCompanyBaseInfo } from "@/servers/api/column";
 import message from "@/components/message";
 import { route } from "@/servers/utils";
@@ -34,13 +34,13 @@ const Index = memo(() => {
   const getData = () => {
     getCompanyBaseInfo(pageData)
       .then((res) => {
-        if (res.code !== 0) {
+        if (res.code !== 200) {
           message.errorMessage(res.msg);
         } else {
           setPageData((prevState) => {
-            return { ...prevState, total: res.data.total };
+            return { ...prevState, total: res.total };
           });
-          setListData((prevState) => [...prevState, ...res.data.list]);
+          setListData((prevState) => [...prevState, ...res.rows]);
         }
       })
       .catch((err) => {
@@ -69,7 +69,9 @@ const Index = memo(() => {
                     )
                   }
                 >
-                  <div className={"image"}></div>
+                  <div className={"image"}>
+
+                  </div>
                   <div className={"title"}>
                     <div>
                       <div className={"titleName"}>{item.title}</div>
